@@ -98,6 +98,14 @@ a:hover {
     margin-bottom: 15px;
 }
 
+.coverage {
+    margin-top: 5px;
+    padding-left: 20px;
+    list-style: disc;
+    font-size: 0.9em;
+    color: #555;
+}
+
 .coauthors {
     font-size: 0.9em;
     color: #555;
