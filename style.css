@@ -1,0 +1,116 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    color: #333;
+    line-height: 1.6;
+    background: #fff;
+}
+
+a {
+    color: #750014;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+.container {
+    max-width: 960px;
+    margin: 60px auto;
+    padding: 0 20px;
+    display: flex;
+    gap: 50px;
+}
+
+.sidebar {
+    width: 200px;
+    flex-shrink: 0;
+}
+
+.headshot {
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 4px;
+    margin-bottom: 15px;
+}
+
+.sidebar h1 {
+    font-size: 1.3em;
+    margin-bottom: 5px;
+}
+
+.affiliation {
+    font-size: 0.85em;
+    color: #555;
+    margin-bottom: 10px;
+    line-height: 1.4;
+}
+
+.links {
+    font-size: 0.85em;
+}
+
+.content {
+    flex: 1;
+}
+
+.content h2 {
+    font-size: 1.2em;
+    margin-top: 30px;
+    margin-bottom: 10px;
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 5px;
+}
+
+.content h2:first-child {
+    margin-top: 0;
+}
+
+.content h3 {
+    font-size: 1em;
+    margin-top: 20px;
+    margin-bottom: 8px;
+    color: #555;
+}
+
+.content ul {
+    list-style: none;
+    padding: 0;
+}
+
+.content li {
+    margin-bottom: 15px;
+}
+
+.coauthors {
+    font-size: 0.9em;
+    color: #555;
+}
+
+.description {
+    font-size: 0.9em;
+    color: #666;
+}
+
+@media (max-width: 600px) {
+    .container {
+        flex-direction: column;
+        margin: 30px auto;
+        gap: 25px;
+    }
+    .sidebar {
+        width: 100%;
+        text-align: center;
+    }
+    .headshot {
+        width: 150px;
+        height: 150px;
+    }
+}
