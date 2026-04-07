@@ -101,8 +101,7 @@ a:hover {
 .coverage {
     margin-top: 5px;
     padding-left: 20px;
-    list-style: disc;
-    font-size: 0.9em;
+    font-size: 0.85em;
     color: #555;
 }
 
