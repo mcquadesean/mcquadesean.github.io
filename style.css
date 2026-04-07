@@ -29,12 +29,12 @@ a:hover {
 }
 
 .sidebar {
-    width: 200px;
+    width: 260px;
     flex-shrink: 0;
 }
 
 .headshot {
-    width: 200px;
+    width: 260px;
     border-radius: 4px;
     margin-bottom: 15px;
 }
