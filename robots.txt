@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://mcquadesean.github.io/sitemap.xml
