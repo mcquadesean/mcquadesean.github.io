@@ -1,15 +1,14 @@
 \documentclass[11pt]{article}
 
-\usepackage[margin=1in, left=1in, right=1in]{geometry}
-\usepackage{hyperref}
+\usepackage[margin=0.85in, left=0.85in, right=0.85in]{geometry}
+\usepackage[hidelinks]{hyperref}
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
-\usepackage{hanging}
 \usepackage{fancyhdr}
 
 \fancypagestyle{plain}{%
   \fancyhf{}%
-  \fancyfoot[R]{\small Updated March 2026}%
+  \fancyfoot[R]{\small Updated August 2026}%
   \fancyfoot[C]{\thepage}%
   \renewcommand{\headrulewidth}{0pt}%
   \renewcommand{\footrulewidth}{0pt}%
@@ -18,17 +17,39 @@
 
 \setlength{\parindent}{0pt}
 
+% Short, fixed-height sections: row sizes to the taller of label/content
 \newcommand{\cvsection}[1]{%
-  \vspace{14pt}%
-  \noindent\begin{minipage}[t]{1.3in}%
+  \vspace{8pt}\par
+  \noindent
+  \begin{minipage}[t]{1.25in}%
     {\small\textsc{#1}}%
-  \end{minipage}%
-  \begin{minipage}[t]{4.5in}%
+  \end{minipage}\hspace{0.15in}%
+  \begin{minipage}[t]{5.4in}%
 }
 
 \newcommand{\cvend}{%
   \end{minipage}\par%
 }
+
+% Long, page-breakable sections: content flows so it can split across pages
+\newcommand{\cvsectionflow}[1]{%
+  \vspace{8pt}\par
+  \leftskip=1.4in\relax
+  \noindent
+  \llap{\smash{\begin{minipage}[t]{1.25in}%
+    {\small\textsc{#1}}%
+  \end{minipage}}\hspace{0.15in}}%
+  \ignorespaces
+}
+
+\newcommand{\cvendflow}{%
+  \par\leftskip=0pt\relax
+}
+
+% First bibliography-style entry in a section (shares the label line)
+\newcommand{\bibfirst}{\hangindent=12pt\hangafter=1\relax\ignorespaces}
+% Subsequent bibliography-style entries
+\newcommand{\bibnext}{\par\vspace{4pt}\hangindent=12pt\hangafter=1\noindent\ignorespaces}
 
 \begin{document}
 
@@ -37,10 +58,11 @@ Kellogg Global Hub\\
 Northwestern University\\
 2211 N Campus Dr\\
 Evanston, IL 60208\\
-sean.mcquade@kellogg.northwestern.edu
+sean.mcquade@kellogg.northwestern.edu\\
+\href{https://mcquadesean.github.io/}{mcquadesean.github.io}
 \end{flushright}
 
-\vspace{6pt}
+\vspace{4pt}
 
 {\large \textbf{Sean McQuade}}
 
@@ -66,91 +88,64 @@ sean.mcquade@kellogg.northwestern.edu
 Organizations $\cdot$ Elites $\cdot$ Ideology $\cdot$ Computational Social Science
 \cvend
 
-\vspace{6pt}
+\vspace{4pt}
 \hrule height 0.4pt
 
-\cvsection{Publications}
-\begin{hangparas}{12pt}{1}
+\cvsectionflow{Publications}
+\bibfirst
 Cai, Erica, \textbf{Sean McQuade}, Kevin Young, and Brendan O'Connor (2026). Relation Extraction Across Entire Books to Reconstruct Community Networks: The AffilKG Datasets. \textit{LREC}, May 2026.
-\end{hangparas}
-
-\begin{hangparas}{12pt}{1}
-\vspace{6pt}
+\bibnext
 Young, Kevin. \textit{et al.} (2026). Gender and Age Divisions Among the Economic Power Elite: A Comparative Analysis of 16 Countries from the World Elite Database (WED). In \textit{The Oxford Handbook of the Sociology of Global Elites}, edited by Maria Luisa Mendez, Mike Savage, and Annette Lareau, April 2026.
-\end{hangparas}
-
-\begin{hangparas}{12pt}{1}
-\vspace{6pt}
+\bibnext
 B\"uhlmann, Felix. \textit{et al.} (2025). Varieties of Economic Elites? Preliminary Results from the World Elite Database (WED). \textit{British Journal of Sociology}, 76: 663--673.
-\end{hangparas}
-\cvend
+\cvendflow
 
-\vspace{-6pt}
-\cvsection{In Progress}
-\begin{hangparas}{12pt}{1}
+\cvsectionflow{In Progress}
+\bibfirst
 Young, Kevin, \textbf{Sean McQuade}, Izaura Solipa, Fran\c{c}ois Schoenberger, Jorge Quesada-Velazco, Shay O'Brien, and Anya Lu. The Ideology of the US Economic Elite.
-\end{hangparas}
-
-\begin{hangparas}{12pt}{1}
-\vspace{6pt}
+\bibnext
+Young, Kevin, Fran\c{c}ois Schoenberger, Izaura Solipa, \textbf{Sean McQuade}, Jorge Quesada-Velazco, Shay O'Brien, and Anya Lu. Describing the US Economic Elite: Education, Demographics and Social Class.
+\bibnext
 Charlesworth, Tessa, Maryam Kouchaki, Mohsen Mosleh, and \textbf{Sean McQuade}. Prevalence, Sentiment, and Topics in Company Twitter Posts about Societal Grand Challenges.
-\end{hangparas}
-
-\begin{hangparas}{12pt}{1}
-\vspace{6pt}
+\bibnext
 Koh, Jodie, Seoul Lee, \textbf{Sean McQuade}, and Klaus Weber. Comparing Meaning Systems of Sustainability in Corporate and Canonical Texts.
-\end{hangparas}
-
-\begin{hangparas}{12pt}{1}
-\vspace{6pt}
+\bibnext
 \textbf{McQuade, Sean}. The Privilege of Lineage: Executive Family Ties and Navigating the U.S.\ Corporate Ladder.
-\end{hangparas}
-
-\begin{hangparas}{12pt}{1}
-\vspace{6pt}
+\bibnext
 \textbf{McQuade, Sean}. Ideology and Homophily in US Non-Profit Organizations.
-\end{hangparas}
-
-\begin{hangparas}{12pt}{1}
-\vspace{6pt}
+\bibnext
 Fan, Xinguo, Chao Ling, Peng Lu, \textbf{Sean McQuade}, Shay O'Brien, Jorge Quesada-Velazco, Fran\c{c}ois Schoenberger, Izaura Solipa, and Kevin Young. A Comparative Analysis of the Philanthropic Donations of the Super-Rich in China and in the United States.
-\end{hangparas}
-
-\begin{hangparas}{12pt}{1}
-\vspace{6pt}
+\bibnext
 Young, Kevin, \textbf{Sean McQuade}, Izaura Solipa, and Jorge Quesada-Velazco. Is Finance Still Central? A Longitudinal Analysis of the Position of Banks and Other Financial Institutions vis-\`a-vis Interest Groups, Policy Planning Organizations and the Transnational Capital Class.
-\end{hangparas}
-\cvend
+\cvendflow
 
 \cvsection{Awards}
 \textbf{Center for Research on Families Research Award}, 2023\\
 \hspace*{12pt}University of Massachusetts, Amherst
 
-\vspace{6pt}
+\vspace{4pt}
 \textbf{Economics Undergraduate Research Assistantship}, 2021\\
 \hspace*{12pt}University of Massachusetts, Amherst
 \cvend
 
-\cvsection{Conference\\Presentations}
-\begin{hangparas}{12pt}{1}
-\textbf{McQuade, Sean}, and Kevin Young (joint presentation). ``Introducing the American Ruling Class: Evidence from the US World Elite Database (WED) Study.'' Presentation to the \textit{British Journal of Sociology} inaugural conference, London School of Economics, London, 15 April 2024.
-\end{hangparas}
-
-\begin{hangparas}{12pt}{1}
-\vspace{6pt}
+\cvsectionflow{Conference\\Presentations}
+\bibfirst
+\textbf{McQuade, Sean}. ``The Privilege of Lineage: The Role of Kinship Ties in Navigating the US Corporate Ladder.'' Presentation to the annual conference of the \textit{Society for the Advancement of Socio-Economics (SASE)}, Bordeaux, France, 2 July 2026.
+\bibnext
 \textbf{McQuade, Sean}, and Kevin Young (joint presentation). ``The US Power Elite: Evidence from the US World Elite Database (WED) Study.'' Presentation to the annual conference of the \textit{Society for the Advancement of Socio-Economics (SASE)}, Limerick, Ireland, 28 June 2024.
-\end{hangparas}
-\cvend
+\bibnext
+\textbf{McQuade, Sean}, and Kevin Young (joint presentation). ``Introducing the American Ruling Class: Evidence from the US World Elite Database (WED) Study.'' Presentation to the \textit{British Journal of Sociology} inaugural conference, London School of Economics, London, 15 April 2024.
+\cvendflow
 
 \cvsection{Other\\Experience}
 \textbf{Cornerstone Research}, Chicago, IL (2024--2025)\\
 \hspace*{12pt}Analyst
 
-\vspace{6pt}
+\vspace{4pt}
 \textbf{Federal Reserve Bank of St.\ Louis}, St.\ Louis, MO (2023)\\
 \hspace*{12pt}Research Intern
 
-\vspace{6pt}
+\vspace{4pt}
 \textbf{University of Massachusetts}, Amherst, MA (2021--2024)\\
 \hspace*{12pt}Research Assistant in Economics and Sociology
 \cvend
