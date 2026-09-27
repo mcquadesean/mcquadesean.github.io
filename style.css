@@ -117,7 +117,7 @@ a:hover {
 
 .photo-rail {
     width: 180px;
-    margin-top: 480px;
+    margin-top: 260px;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 4px;
@@ -151,9 +151,47 @@ a:hover {
 }
 
 .lightbox img {
-    max-width: 92vw;
+    max-width: 84vw;
     max-height: 90vh;
     box-shadow: 0 4px 30px rgba(0, 0, 0, 0.5);
+    cursor: pointer;
+}
+
+.lightbox button {
+    position: absolute;
+    background: none;
+    border: none;
+    color: #fff;
+    font-family: inherit;
+    line-height: 1;
+    cursor: pointer;
+    opacity: 0.7;
+    padding: 10px 16px;
+}
+
+.lightbox button:hover {
+    opacity: 1;
+}
+
+.lb-prev,
+.lb-next {
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 56px;
+}
+
+.lb-prev {
+    left: 1vw;
+}
+
+.lb-next {
+    right: 1vw;
+}
+
+.lb-close {
+    top: 12px;
+    right: 12px;
+    font-size: 40px;
 }
 
 @media (max-width: 600px) {

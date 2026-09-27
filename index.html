@@ -12,7 +12,7 @@
     <meta property="og:type" content="website">
     <title>Sean McQuade | Kellogg School of Management</title>
     <link rel="canonical" href="https://mcquadesean.github.io/">
-    <link rel="stylesheet" href="style.css?v=3">
+    <link rel="stylesheet" href="style.css?v=4">
 </head>
 <body>
     <div class="container">
@@ -93,7 +93,12 @@
             </ol>
         </div>
     </div>
-    <div class="lightbox" hidden><img alt=""></div>
+    <div class="lightbox" hidden>
+        <button class="lb-close" aria-label="Close">&times;</button>
+        <button class="lb-prev" aria-label="Previous">&lsaquo;</button>
+        <img alt="">
+        <button class="lb-next" aria-label="Next">&rsaquo;</button>
+    </div>
 <script>
 document.querySelectorAll('a[href^="http"]').forEach(a => {
     a.setAttribute('target', '_blank');
@@ -105,7 +110,18 @@ const boxImg = box.querySelector('img');
 let cur = 0;
 const show = i => { cur = (i + rail.length) % rail.length; boxImg.src = rail[cur].href; box.hidden = false; };
 rail.forEach((a, i) => a.addEventListener('click', e => { e.preventDefault(); show(i); }));
-box.addEventListener('click', () => box.hidden = true);
+box.addEventListener('click', e => { if (e.target === box || e.target.classList.contains('lb-close')) box.hidden = true; });
+boxImg.addEventListener('click', () => show(cur + 1));
+box.querySelector('.lb-next').addEventListener('click', () => show(cur + 1));
+box.querySelector('.lb-prev').addEventListener('click', () => show(cur - 1));
+let touchX = null;
+box.addEventListener('touchstart', e => { touchX = e.touches[0].clientX; });
+box.addEventListener('touchend', e => {
+    if (touchX === null) return;
+    const dx = e.changedTouches[0].clientX - touchX;
+    if (Math.abs(dx) > 40) show(cur + (dx < 0 ? 1 : -1));
+    touchX = null;
+});
 document.addEventListener('keydown', e => {
     if (box.hidden) return;
     if (e.key === 'Escape') box.hidden = true;
