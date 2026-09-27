@@ -115,6 +115,47 @@ a:hover {
     color: #666;
 }
 
+.photo-rail {
+    width: 220px;
+    margin-top: 480px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 4px;
+}
+
+.photo-rail img {
+    display: block;
+    width: 100%;
+    aspect-ratio: 1;
+    object-fit: cover;
+    transition: opacity 0.2s ease;
+}
+
+.photo-rail a:hover img {
+    opacity: 0.75;
+}
+
+.lightbox {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.85);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10;
+    cursor: zoom-out;
+}
+
+.lightbox[hidden] {
+    display: none;
+}
+
+.lightbox img {
+    max-width: 92vw;
+    max-height: 90vh;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.5);
+}
+
 @media (max-width: 600px) {
     .container {
         flex-direction: column;
@@ -128,5 +169,8 @@ a:hover {
     .headshot {
         width: 150px;
         height: 150px;
+    }
+    .photo-rail {
+        margin: 20px auto 0;
     }
 }

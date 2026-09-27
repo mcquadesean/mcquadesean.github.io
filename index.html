@@ -23,6 +23,23 @@
             <p class="links">
                 <a href="assets/cv.pdf">cv</a> | <a href="https://scholar.google.com/citations?user=f5jc_Z8AAAAJ&hl=en">scholar</a>
             </p>
+            <aside class="photo-rail">
+                <a href="assets/photos/full/dscf0057.jpg"><img src="assets/photos/thumbs/dscf0057.jpg" alt=""></a>
+                <a href="assets/photos/full/dscf0118.jpg"><img src="assets/photos/thumbs/dscf0118.jpg" alt=""></a>
+                <a href="assets/photos/full/dscf0168.jpg"><img src="assets/photos/thumbs/dscf0168.jpg" alt=""></a>
+                <a href="assets/photos/full/dscf0199.jpg"><img src="assets/photos/thumbs/dscf0199.jpg" alt=""></a>
+                <a href="assets/photos/full/dscf0201.jpg"><img src="assets/photos/thumbs/dscf0201.jpg" alt=""></a>
+                <a href="assets/photos/full/dscf0257.jpg"><img src="assets/photos/thumbs/dscf0257.jpg" alt=""></a>
+                <a href="assets/photos/full/dscf0298.jpg"><img src="assets/photos/thumbs/dscf0298.jpg" alt=""></a>
+                <a href="assets/photos/full/dscf0396.jpg"><img src="assets/photos/thumbs/dscf0396.jpg" alt=""></a>
+                <a href="assets/photos/full/dscf0428.jpg"><img src="assets/photos/thumbs/dscf0428.jpg" alt=""></a>
+                <a href="assets/photos/full/dscf0464.jpg"><img src="assets/photos/thumbs/dscf0464.jpg" alt=""></a>
+                <a href="assets/photos/full/dscf0519.jpg"><img src="assets/photos/thumbs/dscf0519.jpg" alt=""></a>
+                <a href="assets/photos/full/dscf0522.jpg"><img src="assets/photos/thumbs/dscf0522.jpg" alt=""></a>
+                <a href="assets/photos/full/dscf0525.jpg"><img src="assets/photos/thumbs/dscf0525.jpg" alt=""></a>
+                <a href="assets/photos/full/img_0547.jpg"><img src="assets/photos/thumbs/img_0547.jpg" alt=""></a>
+                <a href="assets/photos/full/img_1680.jpg"><img src="assets/photos/thumbs/img_1680.jpg" alt=""></a>
+            </aside>
         </div>
         <div class="content">
             <hr class="section-line">
@@ -76,10 +93,24 @@
             </ol>
         </div>
     </div>
+    <div class="lightbox" hidden><img alt=""></div>
 <script>
 document.querySelectorAll('a[href^="http"]').forEach(a => {
     a.setAttribute('target', '_blank');
     a.setAttribute('rel', 'noopener noreferrer');
+});
+const rail = [...document.querySelectorAll('.photo-rail a')];
+const box = document.querySelector('.lightbox');
+const boxImg = box.querySelector('img');
+let cur = 0;
+const show = i => { cur = (i + rail.length) % rail.length; boxImg.src = rail[cur].href; box.hidden = false; };
+rail.forEach((a, i) => a.addEventListener('click', e => { e.preventDefault(); show(i); }));
+box.addEventListener('click', () => box.hidden = true);
+document.addEventListener('keydown', e => {
+    if (box.hidden) return;
+    if (e.key === 'Escape') box.hidden = true;
+    if (e.key === 'ArrowRight') show(cur + 1);
+    if (e.key === 'ArrowLeft') show(cur - 1);
 });
 </script>
 </body>
